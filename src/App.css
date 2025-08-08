@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.nav-link-hover {
+  position: relative;
+  padding-bottom: 4px; 
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #f97316;
+  transform: scaleX(0);
+  transform-origin: button content;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Show the underline on hover */
+.nav-link-hover:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link-hover.active {
+  color: #f97316;
+}
+
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 2;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a{
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: black;
+}
+
+.pagination a:hover{
+    background: #eee;
+}
+
+.pagination li.activerPagination{
+       background: rgb(255, 106, 0);
+    border-radius: 4px;
+    color: #fff;
+}
+
+.active-button{
+    color: #fc3c1a;
+}
