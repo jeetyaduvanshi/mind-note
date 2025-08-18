@@ -77,7 +77,7 @@ const Navbar = () => {
                             <div className='relative'>
                                 <button
                                     onClick={toggleProfileDropdown}
-                                    className='flex items-center gap-2 bg-orange-500 px-4 py-2 font-medium rounded hover:bg-orange-600 transition-all duration-200 ease-in'
+                                    className='flex items-center gap-2 bg-orange-500 px-4 py-2 font-medium rounded hover:bg-white hover:text-orange-500 transition-all duration-200 ease-in'
                                 >
                                     <img
                                         src={user?.avatar || 'https://via.placeholder.com/40x40?text=U'}
@@ -118,13 +118,13 @@ const Navbar = () => {
                             {/* Login & Register Buttons */}
                             <NavLink
                                 to="/login"
-                                className='bg-gray-600 px-4 py-2 font-medium rounded hover:bg-gray-700 transition-all duration-200 ease-in'
+                                className='bg-gray-600 px-4 py-2 font-medium rounded hover:bg-gray-700 hover:text-orange-500 transition-all duration-200 ease-in'
                             >
                                 Log in
                             </NavLink>
                             <NavLink
                                 to="/register"
-                                className='bg-orange-500 px-4 py-2 font-medium rounded hover:bg-orange-600 transition-all duration-200 ease-in'
+                                className='bg-orange-500 px-4 py-2 font-medium rounded hover:bg-white hover:text-orange-500 transition-all duration-200 ease-in'
                             >
                                 Sign up
                             </NavLink>
@@ -157,7 +157,7 @@ const Navbar = () => {
                             <NavLink
                                 onClick={toggleMenu}
                                 to="/create-post"
-                                className='block w-full bg-gray-600 text-white px-6 py-2 font-medium rounded hover:bg-orange-500 transition-all duration-200 ease-in text-center'
+                                className='block w-full bg-gray-600 text-white px-6 py-2 font-medium rounded hover:bg-gray-800 hover:text-orange-500 transition-all duration-200 ease-in text-center'
                             >
                                 Write Post
                             </NavLink>

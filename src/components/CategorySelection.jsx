@@ -1,7 +1,18 @@
 import React from 'react'
 
 const CategorySelection = ({onSelectCategory, activeCategory}) => {
-    const categories = ["Health", "Fintech", "Startups", "AI", "Security", "Enterprise", "Growth", "Apps", "Work", "Gadgets", "Tech"];
+    const categories = [
+        'Technology',
+        'Travel',
+        'Food',
+        'Health',
+        'Business',
+        'Education',
+        'Entertainment',
+        'Sports',
+        'Science',
+        'Politics',
+        'Other'];
 
     return (
         <div className='px-4 mb-8 lg:space-x-8 flex flex-wrap items-center border-b-2 py-5 text-gray-900 font-semibold gap-4 dark:text-white dark:border-gray-700'>
