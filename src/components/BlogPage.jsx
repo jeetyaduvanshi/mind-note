@@ -12,7 +12,7 @@ const BlogPage = () => {
   const [totalPosts, setTotalPosts] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const pageSize = 12
+  const pageSize = 6
   const [selectCategory, setSelectCategory] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
 
@@ -35,7 +35,8 @@ const BlogPage = () => {
       }
 
       const response = await postsAPI.getPosts(params);
-      setBlogs(response.data.posts || []);
+      const posts = response.data.posts || [];
+      setBlogs(posts.slice(0, pageSize));
 
       if (response.data.pagination) {
         setTotalPages(response.data.pagination.totalPages);
@@ -52,6 +53,7 @@ const BlogPage = () => {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   const handleCategoryChange = (category) => {

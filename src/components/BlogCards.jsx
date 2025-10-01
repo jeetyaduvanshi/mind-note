@@ -67,7 +67,7 @@ const BlogCards = ({ blogs, onBlogUpdate }) => {
                     <Link
                         to={`/blogs/${blogId}`}
                         key={blogId}
-                        className='p-5 shadow-lg rounded-2xl flex flex-col bg-white hover:shadow-xl transition-shadow duration-300'
+                        className='p-5 shadow-lg rounded-2xl flex flex-col bg-white hover:shadow-xl transition-shadow duration-300 h-full'
                     >
                         <div>
                             <img src={blog.image} alt={blog.title} className='w-full h-48 object-cover rounded-lg' />

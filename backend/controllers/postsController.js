@@ -216,6 +216,9 @@ export const toggleLike = asyncHandler(async (req, res, next) => {
         }
     }
 
+    // Maintain likesCount based on current likes length
+    post.likesCount = post.likes.length;
+
     await post.save();
     await user.save();
 
@@ -252,6 +255,9 @@ export const toggleBookmark = asyncHandler(async (req, res, next) => {
             user.bookmarkedPosts.push(post._id);
         }
     }
+
+    // Maintain bookmarksCount based on current bookmarks length
+    post.bookmarksCount = post.bookmarks.length;
 
     await post.save();
     await user.save();
