@@ -4,7 +4,7 @@ import BlogPage from '../components/BlogPage'
 const Blogs = () => {
   return (
     <div>
-      <div className='py-10 bg-black text-center text-white px-4'>
+      <div className='py-10 bg-black dark:bg-gray-900 text-center text-white px-4'>
         
       </div>
       {/* all blogs container */}
