@@ -55,15 +55,15 @@ const AuthorProfile = () => {
 
         try {
             const response = await postsAPI.toggleLike(blogId);
-            if (response.success) {
-                // Update the specific post in authorPosts
+            // API returns { success, message, data: { isLiked, likesCount } }
+            if (response?.data) {
                 setAuthorPosts(prevPosts =>
                     prevPosts.map(post =>
-                        post._id === blogId ? { ...post, ...response.data.post } : post
+                        post._id === blogId ? { ...post, isLiked: response.data.isLiked, likesCount: response.data.likesCount } : post
                     )
                 );
             } else {
-                setError(response.message || 'Failed to update like');
+                setError(response?.message || 'Failed to update like');
             }
         } catch (err) {
             console.error('Error toggling like:', err);
@@ -82,15 +82,15 @@ const AuthorProfile = () => {
 
         try {
             const response = await postsAPI.toggleBookmark(blogId);
-            if (response.success) {
-                // Update the specific post in authorPosts
+            // API returns { success, message, data: { isBookmarked, bookmarksCount } }
+            if (response?.data) {
                 setAuthorPosts(prevPosts =>
                     prevPosts.map(post =>
-                        post._id === blogId ? { ...post, ...response.data.post } : post
+                        post._id === blogId ? { ...post, isBookmarked: response.data.isBookmarked, bookmarksCount: response.data.bookmarksCount } : post
                     )
                 );
             } else {
-                setError(response.message || 'Failed to update bookmark');
+                setError(response?.message || 'Failed to update bookmark');
             }
         } catch (err) {
             console.error('Error toggling bookmark:', err);

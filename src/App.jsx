@@ -17,13 +17,15 @@ import Register from './pages/Register';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 
 function App() {
   return (
-    <AuthProvider>
-      <Navbar />
-      <Routes>
+    <ThemeProvider>
+      <AuthProvider>
+        <Navbar />
+        <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
@@ -47,9 +49,10 @@ function App() {
             <AuthorProfile />
           </ProtectedRoute>
         } />
-      </Routes>
-      <Footer />
-    </AuthProvider>
+        </Routes>
+        <Footer />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

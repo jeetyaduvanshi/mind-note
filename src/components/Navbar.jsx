@@ -3,12 +3,15 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { FaBars, FaDribbble, FaFacebook, FaTwitter, FaUser, FaSignOutAlt } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
     const { isAuthenticated, user, logout } = useAuth();
     const navigate = useNavigate();
+    const { theme, toggleTheme } = useTheme();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -62,6 +65,15 @@ const Navbar = () => {
                         <a href="/" className='hover:text-pink-400 text-2xl'><FaDribbble /></a>
                         <a href="/" className='hover:text-blue-400 text-2xl'><FaTwitter /></a>
                     </div>
+
+                    <button
+                        onClick={toggleTheme}
+                        aria-label="Toggle theme"
+                        className='bg-gray-700 px-3 py-2 rounded hover:bg-gray-600 flex items-center gap-2'
+                    >
+                        {theme === 'dark' ? <FaSun /> : <FaMoon />}
+                        <span className='hidden lg:inline text-sm'>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+                    </button>
 
                     {isAuthenticated ? (
                         <>
@@ -143,12 +155,22 @@ const Navbar = () => {
             </nav>
 
             {/* menu items only for mobile */}
-            <ul className={`md:hidden gap-12 text-lg block space-y-4 px-4 py-6 mt-14 bg-white ${isMenuOpen ? "fixed top-0 left-0 w-full transition-all ease-out duration-150" : "hidden"}`}>
+            <ul className={`md:hidden gap-12 text-lg block space-y-4 px-4 py-6 mt-14 bg-white dark:bg-gray-900 dark:text-white ${isMenuOpen ? "fixed top-0 left-0 w-full transition-all ease-out duration-150" : "hidden"}`}>
                 {navItems.map(({ path, link }) => (
                     <li className='text-black' key={path}>
                         <NavLink onClick={toggleMenu} to={path}>{link}</NavLink>
                     </li>
                 ))}
+
+                {/* Theme toggle mobile */}
+                <li>
+                    <button
+                        onClick={() => { toggleTheme(); toggleMenu(); }}
+                        className='w-full bg-gray-700 text-white px-6 py-2 font-medium rounded hover:bg-gray-600 transition-all duration-200 ease-in text-center'
+                    >
+                        {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                    </button>
+                </li>
 
                 {isAuthenticated ? (
                     <>
