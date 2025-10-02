@@ -2,6 +2,8 @@
 
 This is a full-stack blog application with React frontend and Node.js/Express backend.
 
+🚀 **Deployment Status**: Ready for production deployment on Vercel (frontend) and Render (backend).
+
 ## Features
 
 ### Authentication
