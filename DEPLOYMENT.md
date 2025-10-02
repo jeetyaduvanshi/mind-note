@@ -28,9 +28,11 @@ This guide will help you deploy the React Blog Website to Vercel (frontend) and 
 4. Configure the service:
    - **Name**: `blog-backend` (or your preferred name)
    - **Runtime**: `Node`
-   - **Build Command**: `npm install`
+   - **Build Command**: `npm install` (or leave empty)
    - **Start Command**: `npm start`
    - **Root Directory**: `backend`
+   
+   **Important**: Make sure to set the Root Directory to `backend` since your backend code is in a subdirectory.
 
 5. Set Environment Variables in Render:
    - `NODE_ENV`: `production`
