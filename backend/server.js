@@ -7,6 +7,7 @@ import { errorHandler, notFound } from './middleware/error.js';
 // Import routes
 import authRoutes from './routes/authRoutes.js';
 import postRoutes from './routes/postRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -53,9 +54,13 @@ app.use((req, res, next) => {
     next();
 });
 
+// Serve static files (uploads)
+app.use('/uploads', express.static('uploads'));
+
 // API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
+app.use('/api/upload', uploadRoutes);
 
 // Health check route
 app.get('/api/health', (req, res) => {

@@ -37,9 +37,6 @@ This guide will help you deploy the React Blog Website to Vercel (frontend) and 
    - `MONGODB_URI`: Your MongoDB Atlas connection string
    - `JWT_SECRET`: A secure random string (generate one)
    - `CLIENT_URL`: Your Vercel frontend URL (add this after frontend deployment)
-   - `CLOUDINARY_CLOUD_NAME`: Your Cloudinary cloud name (if using image uploads)
-   - `CLOUDINARY_API_KEY`: Your Cloudinary API key
-   - `CLOUDINARY_API_SECRET`: Your Cloudinary API secret
 
 6. Click "Create Web Service"
 7. Wait for deployment to complete
@@ -84,9 +81,6 @@ NODE_ENV=production
 MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/blogdb
 JWT_SECRET=your-super-secret-jwt-key
 CLIENT_URL=https://your-frontend.vercel.app
-CLOUDINARY_CLOUD_NAME=your-cloudinary-name
-CLOUDINARY_API_KEY=your-api-key
-CLOUDINARY_API_SECRET=your-api-secret
 ```
 
 ### Frontend (Vercel)
@@ -133,6 +127,25 @@ VITE_API_URL=https://your-backend.onrender.com/api
 3. Enable MongoDB Atlas IP whitelist
 4. Consider rate limiting for production
 5. Use HTTPS only in production
+
+## Image Upload Functionality
+
+Your blog includes basic image upload functionality:
+
+### Current Setup:
+- Images are stored as URLs in the database
+- Default placeholder images are used
+- Upload functionality is implemented but optional
+
+### To Enable Image Uploads (Optional):
+1. The backend includes upload routes at `/api/upload/image`
+2. Images are stored locally in the `uploads/` directory
+3. For production, consider using cloud storage (Cloudinary, AWS S3, etc.)
+
+### Note:
+- Render's free tier has ephemeral file storage
+- Uploaded files may be deleted when the service restarts
+- For persistent storage, integrate with cloud storage services
 
 ## Support
 
